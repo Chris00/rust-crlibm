@@ -99,7 +99,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -279,7 +279,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -458,7 +458,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -637,7 +637,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -815,7 +815,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -981,7 +981,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -1163,7 +1163,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -1345,7 +1345,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -1528,7 +1528,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -1715,7 +1715,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -1902,7 +1902,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -2088,7 +2088,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		

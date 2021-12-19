@@ -37,7 +37,7 @@ There should be a few simple functions in this library.
 
 
 
-void inline scs_zero(scs_ptr result) {
+inline void scs_zero(scs_ptr result) {
   int i;
 
   for(i=0; i<SCS_NB_WORDS; i++)

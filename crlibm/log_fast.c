@@ -175,7 +175,7 @@ void log_quick(double *pres_hi, double *pres_lo, int* prndcstindex, db_number * 
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (y.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -245,7 +245,7 @@ void log_quick(double *pres_hi, double *pres_lo, int* prndcstindex, db_number * 
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (y.i[HI] < 0){ 
-      return (x-x)/0;                      /* log(-x) = Nan    */
+      return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -307,7 +307,7 @@ double log_ru(double x){
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (y.i[HI] < 0){ 
-      return (x-x)/0;                      /* log(-x) = Nan    */
+      return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		

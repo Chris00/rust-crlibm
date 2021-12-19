@@ -106,7 +106,7 @@ double log_rn(double x) {
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0)    return -1.0/0.0;  /* log(+/-0) = -Inf */
-     if (xdb.i[HI] < 0)                              return (x-x)/0;   /* log(-x) = Nan    */
+     if (xdb.i[HI] < 0)                              return (x-x)/0.0;   /* log(-x) = Nan    */
      /* Else subnormal number */
      xdb.d *= two64; 	  /* make x a normal number    */ 
      E = -64 + (xdb.i[HI]>>20)-1023;             /* extract the exponent */
@@ -137,7 +137,7 @@ double log_rn(double x) {
    /* Filter special cases */
    if (i<(int64_t)ULL(0010000000000000)){   /* equivalent to : x < 2^(-1022)    */
      if ((i & ULL(7fffffffffffffff))==0)  return -1.0/0.0;    /* log(+/-0) = -Inf */
-     if (i<0)                             return (x-x)/0;     /* log(-x) = Nan    */
+     if (i<0)                             return (x-x)/0.0;     /* log(-x) = Nan    */
      /* Else subnormal number */
      y *= two64; 	  /* make x a normal number    */ 
      E = -64;
@@ -240,7 +240,7 @@ double log_rd(double x) {
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0)    return -1.0/0.0;  /* log(+/-0) = -Inf */
-     if (xdb.i[HI] < 0)                              return (x-x)/0;   /* log(-x) = Nan    */
+     if (xdb.i[HI] < 0)                              return (x-x)/0.0;   /* log(-x) = Nan    */
      /* Else subnormal number */
      E = -64; 		
      xdb.d *= two64; 	  /* make x a normal number    */ 
@@ -270,7 +270,7 @@ double log_rd(double x) {
    /* Filter special cases */
    if (i<(int64_t)ULL(0010000000000000)){   /* equivalent to : x < 2^(-1022)    */
      if ((i & ULL(7fffffffffffffff))==0)  return -1.0/0.0;    /* log(+/-0) = -Inf */
-     if (i<0)                             return (x-x)/0;     /* log(-x) = Nan    */
+     if (i<0)                             return (x-x)/0.0;     /* log(-x) = Nan    */
      /* Else subnormal number */
      y *= two64; 	  /* make x a normal number    */ 
      E = -64;
@@ -367,7 +367,7 @@ double log_ru(double x) {
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0)    return -1.0/0.0;  /* log(+/-0) = -Inf */
-     if (xdb.i[HI] < 0)                              return (x-x)/0;   /* log(-x) = Nan    */
+     if (xdb.i[HI] < 0)                              return (x-x)/0.0;   /* log(-x) = Nan    */
      /* Else subnormal number */
      E = -64; 		
      xdb.d *= two64; 	  /* make x a normal number    */ 
@@ -399,7 +399,7 @@ double log_ru(double x) {
    /* Filter special cases */
    if (i<(int64_t)ULL(0010000000000000)){   /* equivalent to : x < 2^(-1022)    */
      if ((i & ULL(7fffffffffffffff))==0)  return -1.0/0.0;    /* log(+/-0) = -Inf */
-     if (i<0)                             return (x-x)/0;     /* log(-x) = Nan    */
+     if (i<0)                             return (x-x)/0.0;     /* log(-x) = Nan    */
      /* Else subnormal number */
      y *= two64; 	  /* make x a normal number    */ 
      E = -64;

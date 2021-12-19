@@ -68,7 +68,7 @@ double log_rn(double x) {
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (y.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -64; 		
@@ -98,7 +98,7 @@ double log_rn(double x) {
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (i<0){
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      xe *= two64; 	  /* make x a normal number    */ 

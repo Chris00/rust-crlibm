@@ -185,7 +185,7 @@ void log2_td_accurate(double *logb2h, double *logb2m, double *logb2l, int E, dou
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -371,7 +371,7 @@ void log2_td_accurate(double *logb2h, double *logb2m, double *logb2l, int E, dou
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -568,7 +568,7 @@ void log2_td_accurate(double *logb2h, double *logb2m, double *logb2l, int E, dou
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -763,7 +763,7 @@ void log2_td_accurate(double *logb2h, double *logb2m, double *logb2l, int E, dou
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -973,7 +973,7 @@ void log2_td_accurate(double *logb2h, double *logb2m, double *logb2l, int E, dou
      }                    		   /* log(+/-0) = -Inf */
      if ((xdb_inf.i[HI] < 0) && (infDone==0)){ 
        infDone=1;
-       restemp_inf = (x_inf-x_inf)/0;                      /* log(-x) = Nan    */
+       restemp_inf = (x_inf-x_inf)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E_inf = -52; 		
@@ -993,7 +993,7 @@ void log2_td_accurate(double *logb2h, double *logb2m, double *logb2l, int E, dou
      }                    		   /* log(+/-0) = -Inf */
      if ((xdb_sup.i[HI] < 0) && (supDone==0)){ 
        supDone=1;
-       restemp_sup = (x_sup-x_sup)/0;                      /* log(-x) = Nan    */
+       restemp_sup = (x_sup-x_sup)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E_sup = -52; 		

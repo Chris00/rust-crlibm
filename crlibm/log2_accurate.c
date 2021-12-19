@@ -98,7 +98,7 @@ double log2_rn(double x) {
     if (((nb.i[HI] & 0x7fffffff)|nb.i[LO])==0)
       return 1.0/0.0;                       /* log(+/-0) = -Inf */
     if (nb.i[HI] < 0) 
-      return (x-x)/0;                       /* log(-x) = Nan    */
+      return (x-x)/0.0;                       /* log(-x) = Nan    */
 
     /* Subnormal number */
     E    -= (SCS_NB_BITS*2); /* keep in mind that x is a subnormal number */ 
@@ -178,7 +178,7 @@ double log2_rd(double x) {
     if (((nb.i[HI] & 0x7fffffff)|nb.i[LO])==0)
       return 1.0/0.0;                       /* log(+/-0) = -Inf */
     if (nb.i[HI] < 0) 
-      return (x-x)/0;                       /* log(-x) = Nan    */
+      return (x-x)/0.0;                       /* log(-x) = Nan    */
 
     /* Subnormal number */
     E    -= (SCS_NB_BITS*2); /* keep in mind that x is a subnormal number */ 
@@ -259,7 +259,7 @@ double log2_ru(double x) {
     if (((nb.i[HI] & 0x7fffffff)|nb.i[LO])==0)
       return 1.0/0.0;                       /* log(+/-0) = -Inf */
     if (nb.i[HI] < 0) 
-      return (x-x)/0;                       /* log(-x) = Nan    */
+      return (x-x)/0.0;                       /* log(-x) = Nan    */
 
     /* Subnormal number */
     E    -= (SCS_NB_BITS*2); /* keep in mind that x is a subnormal number */ 

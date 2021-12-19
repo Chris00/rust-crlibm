@@ -172,7 +172,7 @@ void log_td_accurate(double *logh, double *logm, double *logl, int E, double ed,
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -351,7 +351,7 @@ void log_td_accurate(double *logh, double *logm, double *logl, int E, double ed,
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -525,7 +525,7 @@ void log_td_accurate(double *logh, double *logm, double *logl, int E, double ed,
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		
@@ -697,7 +697,7 @@ void log_td_accurate(double *logh, double *logm, double *logl, int E, double ed,
        return -1.0/0.0;     
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
-       return (x-x)/0;                      /* log(-x) = Nan    */
+       return (x-x)/0.0;                      /* log(-x) = Nan    */
      }
      /* Subnormal number */
      E = -52; 		

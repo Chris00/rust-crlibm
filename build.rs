@@ -29,26 +29,25 @@ const CRLIBM_FILES: &[&str] =
 
 fn add_has_header_flag(build: &mut cc::Build, name: &str)
                        -> std::io::Result<()> {
-    let tmp_file = "target/build_has_header.c";
+    let tmp_file = "build_has_header.c";
     use std::fs::File;
     use std::io::Write;
-    let mut file = File::create(tmp_file)?;
-    write!(file, "#include \"{}.h\"\nint main() {{ return 0; }}\n", name)?;
-    file.flush()?;
+    { let mut file = File::create(tmp_file)?;
+      write!(file, "#include \"{}.h\"\nint main() {{ return 0; }}\n", name)?; }
     let mut local_build = cc::Build::new();
-    let header_exists =
-        local_build.file(tmp_file).try_expand().is_ok();
+    let header_exists = local_build.file(tmp_file).try_expand().is_ok();
     if header_exists {
         let mut flag = String::from("HAVE_");
         flag.push_str(name.to_uppercase().as_str());
         flag.push_str("_H");
         build.define(flag.as_str(), None);
     }
+    std::fs::remove_file(tmp_file).expect("Cannot remove file.");
     Ok(())
 }
 
 fn has_fpu_control() -> bool {
-    let tmp_file = "target/has_fpu_control.c";
+    let tmp_file = "has_fpu_control.c";
     use std::fs::File;
     use std::io::Write;
     let file =
@@ -60,13 +59,16 @@ fn has_fpu_control() -> bool {
                 .and_then(|_| file.flush())
         });
     if file.is_err() { return false }
-    cc::Build::new().file(tmp_file).try_expand().is_ok()
+    let res = cc::Build::new().file(tmp_file).try_expand().is_ok();
+    std::fs::remove_file(tmp_file).expect("Cannot remove file.");
+    res
 }
 
 fn main() -> std::io::Result<()> {
     // Compile crlibm
     let mut build = cc::Build::new();
     // See "crlibm/configure.ac"
+    let mut has_ia32_de = false;
     // "cygwin" || "mingw" || "mingw64"
     //   build.define("CRLIBM_TYPEOS_CYGWIN", None);
     if cfg!(target_os = "macos") || cfg!(target_os = "freebsd")
@@ -76,9 +78,11 @@ fn main() -> std::io::Result<()> {
     if cfg!(target_arch = "powerpc") || cfg!(target_arch = "powerpc64") {
         build.define("CRLIBM_TYPECPU_POWERPC", None); }
     if cfg!(target_arch = "x86") {
-        build.define("CRLIBM_TYPECPU_X86", None); }
+        build.define("CRLIBM_TYPECPU_X86", None);
+        has_ia32_de = true; }
     if cfg!(target_arch = "x86_64") {
-        build.define("CRLIBM_TYPECPU_AMD64", None); }
+        build.define("CRLIBM_TYPECPU_AMD64", None);
+        has_ia32_de = true; }
     if cfg!(target_arch = "arm") || cfg!(target_arch = "aarch64") {
         panic!("CRlibm is not available on arm and aarch64.")
     }
@@ -97,15 +101,12 @@ fn main() -> std::io::Result<()> {
     for path in CRLIBM_INCLUDE_DIRECTORIES {
         build.include(path);
     }
-    for f in CRLIBM_FILES {
-        build.file(f);
-    }
+    build.files(CRLIBM_FILES);
     // Select which files to compile for log.
-    let use_hardware_de = cfg!(target_arch = "x86") && has_fpu_control;
+    let use_hardware_de = has_ia32_de && has_fpu_control;
     if use_hardware_de {
-        build.file("crlibm/log-de.c")
-            .file("crlibm/log2-td.c")
-            .file("crlibm/log10-td.c");
+        build.files(["crlibm/log-de.c", "crlibm/log2-td.c",
+                     "crlibm/log10-td.c"]);
     } else {
         build.file("crlibm/log.c");
     }
@@ -117,7 +118,12 @@ fn main() -> std::io::Result<()> {
     build.flag_if_supported("-Wno-unused-variable")
         .flag_if_supported("-Wno-unused-but-set-variable")
         .flag_if_supported("-Wno-sign-compare")
+        .flag_if_supported("-Wno-unused-parameter")
         .flag_if_supported("-Wno-array-parameter");
+    build.flag_if_supported("-wd4127")
+        .flag_if_supported("-wd4101")
+        .flag_if_supported("-wd4701")
+        .flag_if_supported("-wd4723");
 
     build.compile("crlibm");
     Ok(())

@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build: [stable, beta, nightly, linux32, macos, aarch64-ios, win32, win64, mingw64, windows-2016]
+        build: [stable, beta, nightly, linux32, macos, aarch64-ios, win32, win64, mingw64, windows-latest]
         include:
           - build: stable
             os: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
             rust: stable
             target: aarch64-pc-windows-msvc
           - build: win32
-            os: windows-2016
+            os: windows-latest
             rust: stable-i686-msvc
             target: i686-pc-windows-msvc
           - build: win64
@@ -52,8 +52,8 @@ jobs:
             os: windows-latest
             rust: stable-x86_64-gnu
             target: x86_64-pc-windows-gnu
-          - build: windows-2016
-            os: windows-2016
+          - build: windows-latest
+            os: windows-latest
             rust: stable-x86_64
             target: x86_64-pc-windows-msvc
     steps:

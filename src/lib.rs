@@ -14,7 +14,6 @@ mod crlibm {
         pub fn exp_rn(x: c_double) -> c_double;
         pub fn exp_ru(x: c_double) -> c_double;
         pub fn exp_rd(x: c_double) -> c_double;
-        pub fn exp_rz(x: c_double) -> c_double;
 
         pub fn log_rn(x: c_double) -> c_double;
         pub fn log_ru(x: c_double) -> c_double;
@@ -89,7 +88,6 @@ mod crlibm {
         pub fn acos_rn(x: c_double) -> c_double;
         pub fn acos_ru(x: c_double) -> c_double;
         pub fn acos_rd(x: c_double) -> c_double;
-        pub fn acos_rz(x: c_double) -> c_double;
 
         pub fn asinpi_rn(x: c_double) -> c_double;
         pub fn asinpi_ru(x: c_double) -> c_double;
@@ -99,7 +97,6 @@ mod crlibm {
         pub fn acospi_rn(x: c_double) -> c_double;
         pub fn acospi_ru(x: c_double) -> c_double;
         pub fn acospi_rd(x: c_double) -> c_double;
-        pub fn acospi_rz(x: c_double) -> c_double;
 
         pub fn expm1_rn(x: c_double) -> c_double;
         pub fn expm1_ru(x: c_double) -> c_double;
@@ -132,7 +129,9 @@ pub fn exp_ru(x: f64) -> f64 { unsafe { crlibm::exp_ru(x) }}
 /// `exp(x)` rounded toward -∞.
 pub fn exp_rd(x: f64) -> f64 { unsafe { crlibm::exp_rd(x) }}
 /// `exp(x)` rounded toward zero.
-pub fn exp_rz(x: f64) -> f64 { unsafe { crlibm::exp_rz(x) }}
+pub fn exp_rz(x: f64) -> f64 {
+    // See crlibm.h, exp_rz is just an alias for exp_rd.
+    unsafe { crlibm::exp_rd(x) }}
 
 /// `expm1(x)` returns `exp(x) - 1` (rounded to the nearest) in a way
 /// that is accurate even for values of `x` near zero.
@@ -245,7 +244,9 @@ pub fn acos_ru(x: f64) -> f64 { unsafe { crlibm::acos_ru(x) }}
 /// `acos(x)` rounded toward -∞.
 pub fn acos_rd(x: f64) -> f64 { unsafe { crlibm::acos_rd(x) }}
 /// `acos(x)` rounded toward zero.
-pub fn acos_rz(x: f64) -> f64 { unsafe { crlibm::acos_rz(x) }}
+pub fn acos_rz(x: f64) -> f64 {
+    // See crlibm.h, acos_rz is just an alias for alias_rd
+    unsafe { crlibm::acos_rd(x) }}
 
 /// `atan(x)` rounded to the nearset.
 pub fn atan_rn(x: f64) -> f64 { unsafe { crlibm::atan_rn(x) }}
@@ -272,7 +273,9 @@ pub fn acospi_ru(x: f64) -> f64 { unsafe { crlibm::acospi_ru(x) }}
 /// `acospi(x)` returns `acos(x)`/π ∈ \[0., 1.\] rounded toward -∞.
 pub fn acospi_rd(x: f64) -> f64 { unsafe { crlibm::acospi_rd(x) }}
 /// `acospi(x)` returns `acos(x)`/π ∈ \[0., 1.\] rounded toward zero.
-pub fn acospi_rz(x: f64) -> f64 { unsafe { crlibm::acospi_rz(x) }}
+pub fn acospi_rz(x: f64) -> f64 {
+    // See crlibm.h, acospi_rz is an alias for acospi_rd
+    unsafe { crlibm::acospi_rd(x) }}
 
 /// `atanpi(x)` returns `atan(x)`/π ∈ \[-0.5, 0.5\] rounded to the nearset.
 pub fn atanpi_rn(x: f64) -> f64 { unsafe { crlibm::atanpi_rn(x) }}

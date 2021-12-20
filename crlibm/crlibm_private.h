@@ -824,7 +824,7 @@ extern void sqrt12(double *resh, double *resl, double x);
     /* Handle subnormal case */                                                              \
     if (_xdb.i[HI] < 0x00100000) {                                                           \
       _E = -52;                                                                              \
-      _xdb.d *= ((db_number) ((double) SQRTTWO52)).d; 	                                     \
+      _xdb.d *= ((double) SQRTTWO52); 	                                     \
                       /* make x a normal number */                                           \
     }                                                                                        \
                                                                                              \
@@ -910,7 +910,7 @@ extern void sqrt12(double *resh, double *resl, double x);
     /* Handle subnormal case */                                                              \
     if (_xdb.i[HI] < 0x00100000) {                                                           \
       _E = -52;                                                                              \
-      _xdb.d *= ((db_number) ((double) SQRTTWO52)).d; 	                                     \
+      _xdb.d *= ((double) SQRTTWO52); 	                                     \
                       /* make x a normal number */                                           \
     }                                                                                        \
                                                                                              \

@@ -268,7 +268,7 @@ void sqrt12(double *resh, double *resl, double x) {
     /* Handle subnormal case */
     if (xdb.i[HI] < 0x00100000) {
       E = -52;
-      xdb.d *= ((db_number) ((double) SQRTTWO52)).d; 	  /* make x a normal number */ 
+      xdb.d *= ((double) SQRTTWO52); 	  /* make x a normal number */
     }
     
     /* Extract exponent E and mantissa m */

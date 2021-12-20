@@ -1260,7 +1260,7 @@ extern void Recpr33(double* resh, double* resm, double* resl, double dh, double 
     /* Handle subnormal case */                                                               \
     if (_xdb.i[HI] < 0x00100000) {                                                            \
       _E = -52;                                                                               \
-      _xdb.d *= ((db_number) ((double) SQRTTWO52)).d;                                         \
+      _xdb.d *= ((double) SQRTTWO52);                                         \
                         /* make x a normal number */                                          \
     }                                                                                         \
                                                                                               \

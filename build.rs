@@ -35,7 +35,8 @@ fn add_has_header_flag(build: &mut cc::Build, name: &str)
     { let mut file = File::create(tmp_file)?;
       write!(file, "#include \"{}.h\"\nint main() {{ return 0; }}\n", name)?; }
     let mut local_build = cc::Build::new();
-    let header_exists = local_build.file(tmp_file).try_expand().is_ok();
+    let header_exists = local_build.warnings(false)
+                                   .file(tmp_file).try_expand().is_ok();
     if header_exists {
         let mut flag = String::from("HAVE_");
         flag.push_str(name.to_uppercase().as_str());
@@ -59,7 +60,8 @@ fn has_fpu_control() -> bool {
                 .and_then(|_| file.flush())
         });
     if file.is_err() { return false }
-    let res = cc::Build::new().file(tmp_file).try_expand().is_ok();
+    let res = cc::Build::new().warnings(false)
+        .file(tmp_file).try_expand().is_ok();
     std::fs::remove_file(tmp_file).expect("Cannot remove file.");
     res
 }
@@ -115,15 +117,7 @@ fn main() -> std::io::Result<()> {
     }
 
     // CRlibm produces lots of warnings.
-    build.flag_if_supported("-Wno-unused-variable")
-        .flag_if_supported("-Wno-unused-but-set-variable")
-        .flag_if_supported("-Wno-sign-compare")
-        .flag_if_supported("-Wno-unused-parameter")
-        .flag_if_supported("-Wno-array-parameter");
-    build.flag_if_supported("-wd4127")
-        .flag_if_supported("-wd4101")
-        .flag_if_supported("-wd4701")
-        .flag_if_supported("-wd4723");
+    build.warnings(false);
 
     build.compile("crlibm");
     Ok(())

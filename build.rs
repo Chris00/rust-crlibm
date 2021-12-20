@@ -100,9 +100,7 @@ fn main() -> std::io::Result<()> {
     }
     build.define("SCS_NB_BITS", "30"); // default value
     build.define("SCS_NB_WORDS", "8"); // default value
-    for path in CRLIBM_INCLUDE_DIRECTORIES {
-        build.include(path);
-    }
+    build.includes(CRLIBM_INCLUDE_DIRECTORIES);
     build.files(CRLIBM_FILES);
     // Select which files to compile for log.
     let use_hardware_de = has_ia32_de && has_fpu_control;

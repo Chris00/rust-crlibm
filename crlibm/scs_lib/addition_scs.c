@@ -48,6 +48,10 @@ Copyright (C) 2002  David Defour and Florent de Dinechin
 #include "scs.h"
 #include "scs_private.h"
 
+// The only function in the following file is marked "inline" and is
+// soley used here.   It helps MSVC to compile the code.
+#include "zero_scs.c"
+
 /**
 This function copies a result into another. There is an unrolled
 version for the case SCS_NB_WORDS==8.

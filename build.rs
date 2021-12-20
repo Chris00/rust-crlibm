@@ -23,7 +23,7 @@ const CRLIBM_FILES: &[&str] =
       "crlibm/scs_lib/division_scs.c",
       // "crlibm/scs_lib/print_scs.c",
       "crlibm/scs_lib/double2scs.c",
-      "crlibm/scs_lib/zero_scs.c",
+      //"crlibm/scs_lib/zero_scs.c",
       "crlibm/scs_lib/multiplication_scs.c",
       "crlibm/scs_lib/scs2double.c" ];
 

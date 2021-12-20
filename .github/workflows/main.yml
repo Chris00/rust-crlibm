@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build: [stable, beta, nightly, linux32, macos, aarch64-ios, win32, win64, mingw32, mingw64, windows-2016]
+        build: [stable, beta, nightly, linux32, macos, aarch64-ios, win32, win64, mingw64, windows-2016]
         include:
           - build: stable
             os: ubuntu-latest
@@ -48,11 +48,6 @@ jobs:
             os: windows-latest
             rust: stable
             target: x86_64-pc-windows-msvc
-            # https://github.com/rust-lang/rust/issues/59604
-            # - build: mingw32
-            #   os: windows-latest
-            #   rust: stable-i686-gnu
-            #   target: i686-pc-windows-gnu
           - build: mingw64
             os: windows-latest
             rust: stable-x86_64-gnu

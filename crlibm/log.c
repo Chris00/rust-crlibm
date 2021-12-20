@@ -6,7 +6,7 @@
 #include "crlibm_private.h"
 #include "triple-double.h"
 #include "log.h"
-
+const double NEG_INFINITY = -1.0 / 0.0;
 
 
 void p_accu(double *p_resh, double *p_resm, double *p_resl, double xh, double xm) {
@@ -96,7 +96,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -276,7 +276,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -455,7 +455,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -634,7 +634,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -812,7 +812,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -978,7 +978,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -1160,7 +1160,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -1342,7 +1342,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -1525,7 +1525,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -1712,7 +1712,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -1899,7 +1899,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */
@@ -2085,7 +2085,7 @@ Renormalize3(p_resh,p_resm,p_resl,p_t_21_0h,p_t_21_0m,p_t_21_0l);
    /* Filter cases */
    if (xdb.i[HI] < 0x00100000){        /* x < 2^(-1022)    */
      if (((xdb.i[HI] & 0x7fffffff)|xdb.i[LO])==0){
-       return -1.0/0.0;     
+       return NEG_INFINITY;
      }                    		   /* log(+/-0) = -Inf */
      if (xdb.i[HI] < 0){ 
        return (x-x)/0.0;                      /* log(-x) = Nan    */

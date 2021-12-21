@@ -16,6 +16,7 @@ name = "accuracy"
 path = "examples/accuracy.rs"
 
 [dependencies]
+ctor = "0.1.21"
 
 [build-dependencies]
 cc = "1.0"

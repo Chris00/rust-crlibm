@@ -115,12 +115,15 @@ use std::sync::Once;
 static C_LIB_INITIALIZED: Once = Once::new();
 static mut CW : std::os::raw::c_ulonglong = 0;
 
-pub fn init() {
+#[ctor::ctor]
+fn init() {
     C_LIB_INITIALIZED.call_once(|| unsafe {
         CW = crlibm::crlibm_init();
     });
 }
-pub fn exit() { unsafe { crlibm::crlibm_exit(CW); }}
+
+#[ctor::dtor]
+fn exit() { unsafe { crlibm::crlibm_exit(CW); }}
 
 /// `exp(x)` rounded to the nearset floating point.
 pub fn exp_rn(x: f64) -> f64 { unsafe { crlibm::exp_rn(x) }}
@@ -331,13 +334,19 @@ mod tests {
     use std::f64::consts::PI;
 
     #[test]
-    pub fn cos_pi_ru() {
-        init();
+    pub fn test_cos_pi_ru() {
         assert_ne!(cos_rn(PI), cos_ru(PI));
     }
     #[test]
-    pub fn cos_pi_rd() {
-        init();
+    pub fn test_cos_pi_rd() {
         assert_eq!(cos_rn(PI), cos_rd(PI));
+    }
+    #[test]
+    pub fn test_cospi_rd() {
+        assert_eq!(cospi_rn(1.), cospi_rd(1.));
+    }
+    #[test]
+    pub fn test_cospi_ru() {
+        assert_eq!(cospi_rn(1.), cospi_ru(1.));
     }
 }

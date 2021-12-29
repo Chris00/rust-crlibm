@@ -1,5 +1,14 @@
-/// Binding to CRlibm, a library of proved correctly-rounded
-/// mathematical functions.
+//! Binding to [CRlibm][], a library of proved correctly-rounded
+//! mathematical functions.
+//!
+//! Each function, for example “sin”, comes in four flavors depending
+//! on how the result is rounded:
+//! - `sin_rn`: round the result to nearest;
+//! - `sin_ru`: round the result (up) to +∞;
+//! - `sin_rd`: round the result (down) to -∞;
+//! - `sin_rz`: round the result toward 0.
+//!
+//! [CRlibm]: https://hal-ens-lyon.archives-ouvertes.fr/ensl-01529804/file/crlibm.pdf
 
 
 mod crlibm {

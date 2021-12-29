@@ -8,7 +8,7 @@ homepage = "https://github.com/Chris00/rust-crlibm"
 repository = "https://github.com/Chris00/rust-crlibm"
 license = "GPL-2.0-or-later"
 keywords = ["libm", "math", "floating-point", "rounding", "science"]
-categories = ["mathematics"]
+categories = ["mathematics", "api-bindings", "science"]
 readme = "README.md"
 
 [[example]]

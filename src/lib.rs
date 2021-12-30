@@ -145,46 +145,46 @@ pub fn exp_rz(x: f64) -> f64 {
     // See crlibm.h, exp_rz is just an alias for exp_rd.
     unsafe { crlibm::exp_rd(x) }}
 
-/// `expm1(x)` returns `exp(x) - 1` (rounded to the nearest) in a way
+/// Returns `exp(x) - 1` (rounded to the nearest) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn expm1_rn(x: f64) -> f64 { unsafe { crlibm::expm1_rn(x) }}
+pub fn exp_m1_rn(x: f64) -> f64 { unsafe { crlibm::expm1_rn(x) }}
 
-/// `expm1(x)` returns `exp(x) - 1` (rounded toward + ∞) in a way
+/// Returns `exp(x) - 1` (rounded toward + ∞) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn expm1_ru(x: f64) -> f64 { unsafe { crlibm::expm1_ru(x) }}
+pub fn exp_m1_ru(x: f64) -> f64 { unsafe { crlibm::expm1_ru(x) }}
 
-/// `expm1(x)` returns `exp(x) - 1` (rounded toward -∞) in a way
+/// Returns `exp(x) - 1` (rounded toward -∞) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn expm1_rd(x: f64) -> f64 { unsafe { crlibm::expm1_rd(x) }}
+pub fn exp_m1_rd(x: f64) -> f64 { unsafe { crlibm::expm1_rd(x) }}
 
-/// `expm1(x)` returns `exp(x) - 1` (rounded toward zero) in a way
+/// Returns `exp(x) - 1` (rounded toward zero) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn expm1_rz(x: f64) -> f64 { unsafe { crlibm::expm1_rz(x) }}
+pub fn exp_m1_rz(x: f64) -> f64 { unsafe { crlibm::expm1_rz(x) }}
 
-/// `log(x)` rounded to the nearset floating point.
-pub fn log_rn(x: f64) -> f64 { unsafe { crlibm::log_rn(x) }}
-/// `log(x)` rounded toward +∞.
-pub fn log_ru(x: f64) -> f64 { unsafe { crlibm::log_ru(x) }}
-/// `log(x)` rounded toward -∞.
-pub fn log_rd(x: f64) -> f64 { unsafe { crlibm::log_rd(x) }}
-/// `log(x)` rounded toward zero.
-pub fn log_rz(x: f64) -> f64 { unsafe { crlibm::log_rz(x) }}
+/// Returns `ln(x)` rounded to the nearset floating point.
+pub fn ln_rn(x: f64) -> f64 { unsafe { crlibm::log_rn(x) }}
+/// Returns `ln(x)` rounded toward +∞.
+pub fn ln_ru(x: f64) -> f64 { unsafe { crlibm::log_ru(x) }}
+/// Returns `ln(x)` rounded toward -∞.
+pub fn ln_rd(x: f64) -> f64 { unsafe { crlibm::log_rd(x) }}
+/// Returns `ln(x)` rounded toward zero.
+pub fn ln_rz(x: f64) -> f64 { unsafe { crlibm::log_rz(x) }}
 
-/// `log1p(x)` returns `log(1 + x)` (rounded to the nearest) in a way
+/// Returns `ln(1 + x)` (rounded to the nearest) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn log1p_rn(x: f64) -> f64 { unsafe { crlibm::log1p_rn(x) }}
+pub fn ln_1p_rn(x: f64) -> f64 { unsafe { crlibm::log1p_rn(x) }}
 
-/// `log1p(x)` returns `log(1 + x)` (rounded toward +∞) in a way
+/// Returns `ln(1 + x)` (rounded toward +∞) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn log1p_ru(x: f64) -> f64 { unsafe { crlibm::log1p_ru(x) }}
+pub fn ln_1p_ru(x: f64) -> f64 { unsafe { crlibm::log1p_ru(x) }}
 
-/// `log1p(x)` returns `log(1 + x)` (rounded toward -∞) in a way
+/// Returns `ln(1 + x)` (rounded toward -∞) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn log1p_rd(x: f64) -> f64 { unsafe { crlibm::log1p_rd(x) }}
+pub fn ln_1p_rd(x: f64) -> f64 { unsafe { crlibm::log1p_rd(x) }}
 
-/// `log1p(x)` returns `log(1 + x)` (rounded toward zero) in a way
+/// Returns `ln(1 + x)` (rounded toward zero) in a way
 /// that is accurate even for values of `x` near zero.
-pub fn log1p_rz(x: f64) -> f64 { unsafe { crlibm::log1p_rz(x) }}
+pub fn ln_1p_rz(x: f64) -> f64 { unsafe { crlibm::log1p_rz(x) }}
 
 /// `cos(x)` rounded to the nearset floating point.
 pub fn cos_rn(x: f64) -> f64 { unsafe { crlibm::cos_rn(x) }}

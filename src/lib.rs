@@ -8,6 +8,15 @@
 //! - `sin_rd`: round the result (down) to -∞;
 //! - `sin_rz`: round the result toward 0.
 //!
+//! ## Example
+//!
+//! ```rust
+//! use crlibm::*;
+//! let x = sinpi_rd(2.);
+//! let y = sinpi_rn(2.);
+//! let z = sinpi_ru(2.);
+//! ```
+//!
 //! [CRlibm]: https://hal-ens-lyon.archives-ouvertes.fr/ensl-01529804/file/crlibm.pdf
 
 

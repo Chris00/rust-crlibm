@@ -27,16 +27,29 @@ const CRLIBM_FILES: &[&str] =
       "crlibm/scs_lib/multiplication_scs.c",
       "crlibm/scs_lib/scs2double.c" ];
 
+fn in_appropriate_dir(file: &str) -> std::path::PathBuf {
+    match std::env::var("OUT_DIR") {
+        Err(_) => std::path::PathBuf::from(file),
+        Ok(dir) => {
+            use std::path::PathBuf;
+            let mut path = PathBuf::new();
+            path.push(dir);
+            path.push(file);
+            path
+        }
+    }
+}
+
 fn add_has_header_flag(build: &mut cc::Build, name: &str)
                        -> std::io::Result<()> {
-    let tmp_file = "build_has_header.c";
+    let tmp_file = in_appropriate_dir("build_has_header.c");
     use std::fs::File;
     use std::io::Write;
-    { let mut file = File::create(tmp_file)?;
+    { let mut file = File::create(&tmp_file)?;
       write!(file, "#include \"{}.h\"\nint main() {{ return 0; }}\n", name)?; }
     let mut local_build = cc::Build::new();
     let header_exists = local_build.warnings(false)
-                                   .file(tmp_file).try_expand().is_ok();
+                                   .file(&tmp_file).try_expand().is_ok();
     if header_exists {
         let mut flag = String::from("HAVE_");
         flag.push_str(name.to_uppercase().as_str());
@@ -48,11 +61,11 @@ fn add_has_header_flag(build: &mut cc::Build, name: &str)
 }
 
 fn has_fpu_control() -> bool {
-    let tmp_file = "has_fpu_control.c";
+    let tmp_file = in_appropriate_dir("has_fpu_control.c");
     use std::fs::File;
     use std::io::Write;
     let file =
-        File::create(tmp_file)
+        File::create(&tmp_file)
         .and_then(|mut file| {
             write!(file, "#include \"fpu_control.h\"\nint main() {{\n\
                           unsigned long long cw;\n\
@@ -61,7 +74,7 @@ fn has_fpu_control() -> bool {
         });
     if file.is_err() { return false }
     let res = cc::Build::new().warnings(false)
-        .file(tmp_file).try_expand().is_ok();
+        .file(&tmp_file).try_expand().is_ok();
     std::fs::remove_file(tmp_file).expect("Cannot remove file.");
     res
 }

@@ -1,6 +1,6 @@
 [package]
 name = "crlibm"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Christophe Troestler"]
 description = "Binding to CRlibm, a correctly rounded math lib"

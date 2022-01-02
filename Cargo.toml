@@ -6,6 +6,7 @@ authors = ["Christophe Troestler"]
 description = "Binding to CRlibm, a correctly rounded math lib"
 homepage = "https://github.com/Chris00/rust-crlibm"
 repository = "https://github.com/Chris00/rust-crlibm"
+documentation = "https://docs.rs/crlibm"
 license = "GPL-2.0-or-later"
 keywords = ["libm", "math", "floating-point", "rounding", "science"]
 categories = ["mathematics", "api-bindings", "science"]

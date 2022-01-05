@@ -2,7 +2,7 @@
 name = "crlibm"
 version = "0.1.1"
 edition = "2021"
-authors = ["Christophe Troestler"]
+authors = ["Christophe Troestler <christophe.troestler@umons.ac.be>"]
 description = "Binding to CRlibm, a correctly rounded math lib"
 homepage = "https://github.com/Chris00/rust-crlibm"
 repository = "https://github.com/Chris00/rust-crlibm"

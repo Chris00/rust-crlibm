@@ -98,9 +98,6 @@ fn main() -> std::io::Result<()> {
     if cfg!(target_arch = "x86_64") {
         build.define("CRLIBM_TYPECPU_AMD64", None);
         has_ia32_de = true; }
-    if cfg!(target_arch = "arm") || cfg!(target_arch = "aarch64") {
-        panic!("CRlibm is not available on arm and aarch64.")
-    }
     add_has_header_flag(&mut build, "fenv")?;
     add_has_header_flag(&mut build, "float")?;
     add_has_header_flag(&mut build, "inttypes")?;

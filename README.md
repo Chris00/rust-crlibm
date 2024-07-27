@@ -19,6 +19,13 @@ let y = sinpi_rn(2.);
 let z = sinpi_ru(2.);
 ```
 
+## Features
+
+Be default, the crate uses portable implementations of the logarithm.
+The feature `log_double_extended` enables implementations optimized
+for processors with double-extended hardware (if in addition the
+correct platform is detected).  These versions may not be faster.
+
 
 [CRlibm]: https://web.archive.org/web/20161027224938/http://lipforge.ens-lyon.fr/www/crlibm
 [crlibm-git]: https://scm.gforge.inria.fr/anonscm/git/metalibm/crlibm.git

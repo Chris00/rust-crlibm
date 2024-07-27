@@ -18,6 +18,9 @@ exclude = ["Makefile*", "/.github",
   "/crlibm/**/*.user", "/crlibm/**/*.dox", "/crlibm/CMakeLists.txt",
   "/crlibm/prepare", "/crlibm/**/ChangeLog"]
 
+[features]
+log_double_extended = []
+
 [[example]]
 name = "accuracy"
 path = "examples/accuracy.rs"
@@ -27,5 +30,3 @@ ctor = "0.1.21"
 
 [build-dependencies]
 cc = "1.0"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

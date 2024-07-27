@@ -116,7 +116,8 @@ fn main() -> std::io::Result<()> {
     build.includes(CRLIBM_INCLUDE_DIRECTORIES);
     build.files(CRLIBM_FILES);
     // Select which files to compile for log.
-    let use_hardware_de = has_ia32_de && has_fpu_control;
+    let use_hardware_de =
+        cfg!(feature = "log_double_extended") && has_ia32_de && has_fpu_control;
     if use_hardware_de {
         build.files(["crlibm/log-de.c", "crlibm/log2-td.c",
                      "crlibm/log10-td.c"]);

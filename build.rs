@@ -73,7 +73,7 @@ fn has_fpu_control() -> bool {
                 .and_then(|_| file.flush())
         });
     if file.is_err() { return false }
-    let res = cc::Build::new().warnings(false)
+    let res = cc::Build::new().cargo_warnings(false)
         .file(&tmp_file).try_expand().is_ok();
     std::fs::remove_file(tmp_file).expect("Cannot remove file.");
     res
